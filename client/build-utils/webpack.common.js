@@ -16,7 +16,7 @@ const config = {
             cacheGroups: {
                 vendor: {
                     chunks: 'initial',
-                    test: /[\\/]node_modules[\\/]react-bootstrap([\S]+)[\\/]/,
+                    test: /[\\/]node_modules[\\/]react-bootstrap[\\/]/,
                     name: 'vendor',
                     enforce: true,
                 },

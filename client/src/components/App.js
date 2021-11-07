@@ -6,6 +6,7 @@ import Loading from './Loading';
 import { useDispatch } from 'react-redux';
 import { fetchUser } from '../actions/Auth/AuthActions';
 
+
 const AsyncDynamicPAge = importedComponent(
     () => import(/* webpackChunkName:'DynamicPage' */ './DynamicPage'),
     {
@@ -18,6 +19,19 @@ const AsyncNoMatch = importedComponent(
         LoadingComponent: Loading
     }
 );
+const Stripe = importedComponent(
+    () => import(/* webpackChunkName:'NoMatch' */ './Stripe'),
+    {
+        LoadingComponent: Loading
+    }
+);
+const Finalpayment = importedComponent(
+    () => import(/* webpackChunkName:'NoMatch' */ './Finalpayment'),
+    {
+        LoadingComponent: Loading
+    }
+);
+
 const App = () => {
     const dispatch = useDispatch()
     useEffect(() => {
@@ -29,6 +43,8 @@ const App = () => {
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route path="/dynamic" component={AsyncDynamicPAge} />
+                    <Route path="/stripe" component={Stripe} />
+                    <Route path="/finalpayment" component={Finalpayment} />
                     <Route component={AsyncNoMatch} />
                 </Switch>
             </div>

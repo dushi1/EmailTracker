@@ -62,7 +62,7 @@ const config = {
             middleware: (app, builtins) => {
                 app.use(builtins.proxy('/api', { target: 'http://localhost:5000' }));
             },
-            historyFallback: false,
+            historyFallback: true,
             liveReload: false,
             hmr: true,
             host: 'localhost',

@@ -4,10 +4,12 @@ const User = require('../model/googleAuthModel')
 
 
 passport.serializeUser((user, done) => {
+    // console.log('user=', user)
     done(null, user._id)
 })
 
 passport.deserializeUser((id, done) => {
+    // console.log('id=', id);
     User.findById(id).then((user) => {
         done(null, user)
     })
@@ -21,6 +23,7 @@ passport.use(new GoogleStrat({
     callbackURL: "/api/google/callback"
 },
     (accessToken, refreshToken, profile, done) => {
+        // console.log('profile=', profile)
         User.findOne({ googleId: profile.id }).then((resp) => {
             if (resp) {
                 done(null, resp)

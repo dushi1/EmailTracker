@@ -8,8 +8,8 @@ const Home = () => {
             <p>Hello World of React and Webpack!</p>
             <p>
                 <Link to="/dynamic">Navigate to Dynamic</Link>
+                <Link to="/stripe">Stripe</Link>
             </p>
-
         </Layout>
     );
 };
